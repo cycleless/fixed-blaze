@@ -1,0 +1,24 @@
+[package]
+name = "fixed-blaze"
+version = "0.1.0"
+edition = "2024"
+description = "Zero-cost fixed-point arithmetic with convergent rounding and SIMD-first design."
+license = "AGPL-3.0-only"
+keywords = ["fixed-point", "no_std", "embedded", "simd", "rounding"]
+categories = ["mathematics", "no-std", "hardware-support", "science"]
+repository = "https://github.com/cycleless/fixed-blaze"
+
+[dependencies]
+
+[[bin]]
+name = "fixed-blaze"
+path = "src/cmd/main.rs"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "z"
+lto = true
+codegen-units = 1
